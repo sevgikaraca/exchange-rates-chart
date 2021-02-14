@@ -1,20 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app"
+    :style="cssProps"
+  >
+    <div class="container">
+      <br/>
+      <div id="nav">
+        <router-link to="/">Tarih Bazlı Döviz Kurları Grafiği</router-link>
+      </div>
+      <br/>
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      cssProps: {
+        backgroundImage: `url(${require('@/assets/rupixen-com-BCRzMNq9jBc-unsplash.jpg')})`
+      }
+    }
+  },
+}
+</script>
+
 <style>
+@import url(https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css);
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  min-height: 100vh;
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 #nav {
@@ -22,11 +42,17 @@
 }
 
 #nav a {
+  font-size: 24px;
   font-weight: bold;
-  color: #2c3e50;
+  color:white;
+  background-color: #1D9BFA;
+  border-radius: 40px;
+  padding: 6px 
 }
+ @media screen and (max-width: 1000px) {
+   #nav {
+  padding: 0;
+}
+ }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
